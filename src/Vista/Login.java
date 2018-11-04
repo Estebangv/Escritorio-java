@@ -162,14 +162,13 @@ public class Login extends javax.swing.JFrame {
             
             int coincidencia = 0;
             
-            ResultSet lista = Database.crearConsulta("SELECT * FROM usuario WHERE rut='" + rut + "' "
-                                         + "and  pass='" + clave + "'and id_tipousuario='"+"1"+"'");
+            ResultSet lista = Database.crearConsulta("SELECT * FROM usuario WHERE rut='" + rut + "' and  pass='" + clave + "'and id_tipousuario='"+"1"+"' and habilitado='"+"1"+"'");
 
             while (lista.next()) {
                 coincidencia = coincidencia + 1;
             }
             if (coincidencia == 0) { //Si no encontró algo
-                JOptionPane.showMessageDialog(null, "Usuario Invalido", "Aviso", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuario no permitido", "Aviso", JOptionPane.ERROR_MESSAGE);
             } else if (coincidencia >= 1) {
                         JOptionPane.showMessageDialog(null, "Login exitoso");
                         home.dispose();

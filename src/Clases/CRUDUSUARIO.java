@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import java.time.Instant;
 
 /**
  *
@@ -99,13 +101,14 @@ public class CRUDUSUARIO {
         Database cn = new Database();
         String sql = "UPDATE usuario SET pass = ?, nombre = ?, paterno = ?, materno = ?, fechaIngreso = ?, correo = ?, fono = ?, habilitado = ?, nacionalidad = ?, id_tipoUsuario = ?, id_unidad = ? WHERE rut = ?";
         PreparedStatement ps = null;
+       
         try{
             ps = cn.getConnection().prepareStatement(sql);
             ps.setString(1 , us.getPass());
                 ps.setString(2 ,us.getNombre()); 
                 ps.setString(3 , us.getPaterno());
                 ps.setString(4 , us.getMaterno());
-                ps.setString(5, String.valueOf(us.getFechaIngreso()));
+               ps.setString(5, String.valueOf(us.getFechaIngreso()));
                 ps.setString(6 ,us.getCorreo());
                 ps.setString(7,us.getFono());
                 ps.setInt(8,us.getHabilitado());
@@ -127,7 +130,26 @@ public class CRUDUSUARIO {
         }
     }
 
-
+public void HabilitarUsuario(Usuario usu){
+        Database cn = new Database();
+        String sql = "UPDATE usuario SET habilitado = ?, WHERE rut = ? ";
+        PreparedStatement ps = null;
+        try{
+            ps = cn.getConnection().prepareStatement(sql);
+            ps.setInt(1, (usu.getHabilitado()));
+            ps.setString(2, usu.getRut());
+            ps.executeUpdate();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{
+                ps.close();
+                cn = null;
+            }catch(Exception ex){}
+        }
+    }
 /*Metodo Eliminar*/
     public void Eliminar_Usuario(Usuario us){
         Database cn = new Database();

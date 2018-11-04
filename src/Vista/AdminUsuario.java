@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Raul
+ * @author Esteban
  */
 public class AdminUsuario extends javax.swing.JFrame {
 
@@ -45,7 +45,7 @@ public class AdminUsuario extends javax.swing.JFrame {
         //mostrarUsuarios();
         //habilitacionDeTextos(false);
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
-        activa_boton(false, false, true);
+        activa_boton(false, false, true, true);
         tab_Usuario.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         setResizable(false);
     }
@@ -67,147 +67,7 @@ public class AdminUsuario extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
-   /* 
-    public void listaTipoUsuario() {
-        ArrayList<String> list = new ArrayList<String>();
-        //  ArrayList<Object> list2 = new ArrayList<Object>();
-
-        Database cn = new Database();
-        String sql = "select nombre from tipo_usuario";
-        ResultSet lista = null;
-        PreparedStatement ps = null;
-        try {
-            ps = cn.getConnection().prepareStatement(sql);
-            lista = ps.executeQuery();
-            while (lista.next()) {
-                list.add(lista.getString(1));
-                String n = lista.getString("nombre");
-                txtTipoUsuario.(lista.getString(1));
-                // list2.add(o);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                ps.close();
-                lista.close();
-                cn.desconectar();
-            } catch (Exception ex) {
-            }
-        }
-
-    }
-
-    public void listaMarcas() {
-        ArrayList<String> list = new ArrayList<String>();
-        //  ArrayList<Object> list2 = new ArrayList<Object>();
-
-        Database cn = new Database();
-        String sql = "select nombre from marca";
-        ResultSet lista = null;
-        PreparedStatement ps = null;
-        try {
-            ps = cn.getConnection().prepareStatement(sql);
-            lista = ps.executeQuery();
-            while (lista.next()) {
-                list.add(lista.getString(1));
-                String n = lista.getString("nombre");
-                txt_marca.addItem(lista.getString(1));
-                // list2.add(o);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                ps.close();
-                lista.close();
-                cn.desconectar();
-            } catch (Exception ex) {
-            }
-        }
-
-    }
-
-    public int obtenerIdCategoriaConsumidor(String nombreCategoria) {
-        ArrayList<String> list = new ArrayList<String>();
-        int[] numCat = new int[1];
-        //  ArrayList<Object> list2 = new ArrayList<Object>();
-
-        Database cn = new Database();
-        String sql = "select id from categoria where tipo like '" + nombreCategoria + "'"; //scar numero
-        ResultSet lista = null;
-        PreparedStatement ps = null;
-        int idCat = 0;
-        try {
-            ps = cn.getConnection().prepareStatement(sql);
-            lista = ps.executeQuery();
-            while (lista.next()) {
-                numCat[0] = lista.getInt(1);
-                idCat = numCat[0];
-                list.add(lista.getString(1));
-                //idCom = lista.getInt(1);  //entrega el id
-                // System.out.println(idCom);
-                //cb_comuna.setSelectedIndex(idCom);
-                // list2.add(o);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                ps.close();
-                lista.close();
-                cn.desconectar();
-            } catch (Exception ex) {
-            }
-        }
-        System.out.println(idCat);
-        return idCat;
-    }
-
-    public int obtenerIdMarca(String nombreMarca) {
-        ArrayList<String> list = new ArrayList<String>();
-        int[] numMarca = new int[1];
-        //  ArrayList<Object> list2 = new ArrayList<Object>();
-
-        Database cn = new Database();
-        String sql = "select id from marca where nombre like '" + nombreMarca + "'"; //scar numero
-        ResultSet lista = null;
-        PreparedStatement ps = null;
-        int idMar = 0;
-        try {
-            ps = cn.getConnection().prepareStatement(sql);
-            lista = ps.executeQuery();
-            while (lista.next()) {
-                numMarca[0] = lista.getInt(1);
-                idMar = numMarca[0];
-                list.add(lista.getString(1));
-                //idCom = lista.getInt(1);  //entrega el id
-                // System.out.println(idCom);
-                //cb_comuna.setSelectedIndex(idCom);
-                // list2.add(o);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        } finally {
-            try {
-                ps.close();
-                lista.close();
-                cn.desconectar();
-            } catch (Exception ex) {
-            }
-        }
-        System.out.println(idMar);
-        return idMar;
-    }
-*/
+ 
     public void modificar() {
       int errores = 0;
         if (txtRut.getText().equals("") || txtNombre.getText().equals("") || txtPass.getText().equals("")
@@ -244,11 +104,11 @@ public class AdminUsuario extends javax.swing.JFrame {
     }
     
 
-    public void activa_boton( boolean a1, boolean a2, boolean a3) {
+    public void activa_boton( boolean a1, boolean a2, boolean a3, boolean a4) {
         btnModificar.setEnabled(a1);
         btnHabilitar.setEnabled(a2);
         txtRut.setEnabled(a3);
-        
+        txtHabilitado.setEnabled(a4);
 
     }
 
@@ -576,20 +436,24 @@ public class AdminUsuario extends javax.swing.JFrame {
 
     private void tab_UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_UsuarioMouseClicked
         Clic_tabla = this.tab_Usuario.rowAtPoint(evt.getPoint());
-        Date dateI = null;
-        String fechaI;
-        dateI = dtFecha.getDate();
-        fechaI =tab_Usuario.getValueAt(Clic_tabla, 5).toString();
+        //Date dateI = null;
+        //String fechaI;
+        //java.sql.Date sqlFechaIng = new java.sql.Date(dateI.getTime());
+        //dateI = dtFecha.getDate();
+                //dateT = dtFecha.getDate();
+
+               // fechaI = dateI.toString();
+         Date fechaIngreso =  (java.sql.Date)tab_Usuario.getValueAt(Clic_tabla, 5);
         String rut = "" + tab_Usuario.getValueAt(Clic_tabla, 0);
         String pass = "" + tab_Usuario.getValueAt(Clic_tabla, 1);
         String nombre = ""+ tab_Usuario.getValueAt(Clic_tabla, 2);
         String paterno = ""+ tab_Usuario.getValueAt(Clic_tabla, 3);
         String materno = ""+ tab_Usuario.getValueAt(Clic_tabla, 4);
        //Date fechaIngreso = "" + tab_Usuario.getValueAt(Clic_tabla, 5); NOOOO
-        String hab = ""+ tab_Usuario.getValueAt(Clic_tabla, 6);
-        String nacionalidad = ""+ tab_Usuario.getValueAt(Clic_tabla, 7);
-        String mail = ""+ tab_Usuario.getValueAt(Clic_tabla, 8);
-        String fono = ""+ tab_Usuario.getValueAt(Clic_tabla, 9);
+        String hab = ""+ tab_Usuario.getValueAt(Clic_tabla, 8);
+        String nacionalidad = ""+ tab_Usuario.getValueAt(Clic_tabla, 9);
+        String mail = ""+ tab_Usuario.getValueAt(Clic_tabla, 6);
+        String fono = ""+ tab_Usuario.getValueAt(Clic_tabla, 7);
         String tipousuario = ""+ tab_Usuario.getValueAt(Clic_tabla, 10);
         String unidad = ""+ tab_Usuario.getValueAt(Clic_tabla, 11);
         
@@ -599,7 +463,7 @@ public class AdminUsuario extends javax.swing.JFrame {
         txtPaterno.setText(paterno);
         txtFono.setText(fono);
         txtMaterno.setText(materno);
-        dtFecha.setDateFormatString(fechaI);
+        dtFecha.setDate(fechaIngreso);
         txtHabilitado.setText(hab);
         txtNacionalidad.setText(nacionalidad);
         txtNombre.setText(nombre);
@@ -621,13 +485,13 @@ public class AdminUsuario extends javax.swing.JFrame {
                 if (boton.getName().equals("mod")) {
                     System.out.println("Click en el boton modificar");
                     //EVENTOS MODIFICAR
-                    activa_boton( true, false, false);
+                    activa_boton( true, false, false, false);
                 }
                 if (boton.getName().equals("hab")) {
                     //JOptionPane.showConfirmDialog(null, "Desea eliminar este registro", "Confirmar", JOptionPane.OK_CANCEL_OPTION);
                     System.out.println("Click en el boton habilitar/bloquear");
                     //EVENTOS ELIMINAR
-                    activa_boton( false, true, false);
+                    activa_boton( false, true, false, false);
                 }
             }
 
@@ -687,24 +551,60 @@ public class AdminUsuario extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         modificar();
         usu.visualizar_Usuario(tab_Usuario);
-        activa_boton( false, false, true);
+        activa_boton( false, false, true, true);
         lim.limpiar_texto(panel);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabilitarActionPerformed
 
-       /* int s = JOptionPane.showConfirmDialog(null, "Eliminar retail", "Si/no", JOptionPane.YES_NO_OPTION);
-        if (s == 0) {
-            eliminar();
-            rt.visualizar_Retail(tab_usuarios);
-            activa_boton(true, false, false, true);
-            lim.limpiar_texto(panel);
-        }*/
+        int itemSeleccionado = tab_Usuario.getSelectedColumn();
+        if (itemSeleccionado <= 0) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un usuario.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } else {
+            int fila = tab_Usuario.getSelectedRow();
+            String rut = tab_Usuario.getValueAt(fila, 0).toString();
+            String habilitado =  tab_Usuario.getValueAt(fila, 8).toString();  
+            int habilitado2;
+            System.out.println("valor id: " + rut + " valor de activo: " + habilitado);
+
+            if (habilitado.equals("No")) {
+                habilitado2 = 1;
+                
+                JOptionPane.showMessageDialog(this, "Usuario activado");
+            } else {
+                habilitado2 = 2;
+                JOptionPane.showMessageDialog(this, "Usuario bloqueado");
+            }
+
+            System.out.println("NUEVOS -> valor id: " + rut+ " valor de activo: " + habilitado);
+
+            Database cn = new Database();
+            String sql = "UPDATE usuario SET habilitado = ? WHERE rut = ?";
+            PreparedStatement ps = null;
+            try {
+                ps = cn.getConnection().prepareStatement(sql);
+                ps.setString(2, rut);
+                ps.setInt(1, habilitado2);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+                try {
+                    ps.close();
+                    cn = null;
+                } catch (Exception ex) {
+                }
+            }
+            usu.visualizar_Usuario(tab_Usuario);
+        }
+        
     }//GEN-LAST:event_btnHabilitarActionPerformed
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
         lim.limpiar_texto(panel);
-        activa_boton( false, false, true);
+        activa_boton( false, false, true, true);
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     private void dtFechaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dtFechaFocusLost

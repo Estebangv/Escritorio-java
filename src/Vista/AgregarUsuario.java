@@ -536,7 +536,7 @@ ArrayList<Object> usuarios = new ArrayList<Object>();
 
     private void btnVerUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerUsuariosActionPerformed
         this.dispose();
-        new adminUsuarios().setVisible(true);
+        new AdminUsuario().setVisible(true);
     }//GEN-LAST:event_btnVerUsuariosActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed

@@ -21,10 +21,8 @@ public class CRUDUSUARIO {
     public ArrayList<Usuario> Listar_Usuario(){
         ArrayList<Usuario> list = new ArrayList<Usuario>();
         Database cn = new Database();
-        //String sql = "SELECT u.rut, u.pass, u.nombre, u.pateno, u.materno, u.fechaIngreso, u.correo,u.fono, u.habilitado, u.nacionalidad, t.nombre, d.nombre"
-             
-       // + "from usuario u INNER JOIN Tipo_Usuario t ON u.id_tipousuario = t.id_tipousuario INNER JOIN unidad d on u.id_unidad = d.id_unidad ";
-       String sql ="SELECT * FROM usuario";
+        String sql = "SELECT u.rut, u.pass, u.nombre, u.a_paterno, u.a_materno, u.fecha_Ingreso, u.mail,u.fono, u.habilitado, u.nacionalidad, t.nombre, d.nombre from usuario u INNER JOIN Tipo_Usuario t ON u.id_tipousuario = t.id_tipousuario INNER JOIN unidad d on u.id_unidad = d.id_unidad ";
+       //String sql ="SELECT * FROM usuario";
         ResultSet lista = null;
         PreparedStatement ps = null;
         try{
@@ -44,6 +42,7 @@ public class CRUDUSUARIO {
                 usu.setNacionalidad(lista.getString(10));
                 usu.setId_tipoUsuario(lista.getInt(11));
                 usu.setId_Unidad(lista.getInt(12));
+ 
                 
                 list.add(usu);
             }

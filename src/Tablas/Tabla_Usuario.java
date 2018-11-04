@@ -45,8 +45,8 @@ public class Tabla_Usuario {
         
         JButton btn_modificar = new JButton("MODIFICAR");
         btn_modificar.setName("mod");
-        JButton btn_eliminar = new JButton("HABILITAR");
-        btn_eliminar.setName("hab");
+        JButton btn_habilitar = new JButton("HABILITAR");
+        btn_habilitar.setName("hab");
 
         crud_usu = new CRUDUSUARIO();
         Usuario usu = new Usuario();
@@ -64,16 +64,16 @@ public class Tabla_Usuario {
                 fila[5] = usu.getFechaIngreso();
                 fila[6] = usu.getCorreo();
                 fila[7] = usu.getFono();
-                fila[8]=usu.getHabilitado();
+                //fila[8]=usu.getHabilitado();
                 
-              /*  String hab = ""+usu.getHabilitado();
+                String hab = ""+usu.getHabilitado();
                 if(hab.equals("1")){
                     fila[8]="Si";
                 }else{
                     fila[8]="No";
                 }
                 fila[9] = usu.getNacionalidad();
-                String tu  = ""+usu.getId_tipoUsuario();
+              //  String tu  = ""+usu.getId_tipoUsuario();
                 
               /*  if(tu.equals("1")){
                     fila[10]="Administrador";
@@ -88,11 +88,11 @@ public class Tabla_Usuario {
                 }else {
                     fila[10]="Sin asignar";
                 }*/
-                 fila[9] = usu.getNacionalidad();
+                fila[9] = usu.getNacionalidad();
                 fila[10]=usu.getId_tipoUsuario();
                 fila[11] = usu.getId_Unidad();
-                fila[12] = btn_modificar;
-                fila[13] = btn_eliminar;
+                fila[12] = btn_modificar; //cambiar numero
+                fila[13] = btn_habilitar; // cambiar numero
                 dt.addRow(fila);
             }
             tabla.setModel(dt);

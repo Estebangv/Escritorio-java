@@ -53,15 +53,15 @@ public class AdminUsuario extends javax.swing.JFrame {
     public void obtenerUsuarios() {
         DefaultTableModel modelo = new DefaultTableModel();
         ResultSet lista = Database.crearConsulta("SELECT * FROM USUARIO");
-        modelo.setColumnIdentifiers(new Object[]{"RUT", "CLAVE", "NOMBRE", "PATERNO", "MATERNO","FECHA INGRESO", "MAIL","FONO", "HABILITADO", "NACIONALIDAD","TIPO USUARIO", "UNIDAD"});
+        modelo.setColumnIdentifiers(new Object[]{"RUT", "CLAVE", "NOMBRE","PATERNO", "MATERNO","FECHA INGRESO", "MAIL","FONO", "HABILITADO", "NACIONALIDAD","TIPO USUARIO", "UNIDAD"});
 
         try {
             while (lista.next()) {
                 modelo.addRow(new Object[]{lista.getString("rut"), lista.getString("clave"), lista.getString("nombre")
-              , lista.getString("a_paterno"), lista.getString("a_materno"),lista.getDate("fecha_ingreso")
-             ,lista.getString("mail"),lista.getString("fono"),lista.getInt("habilitado"),lista.getString("nacionalidad")
-             ,lista.getInt("id_tipousuario"),lista.getInt("id_unidad")});
-            }
+             , lista.getString("a_paterno"), lista.getString("a_materno"),lista.getDate("fecha_ingreso")
+                ,lista.getString("mail"),lista.getString("fono"),lista.getInt("habilitado"),lista.getString("nacionalidad")
+            ,lista.getInt("id_tipousuario"),lista.getInt("id_unidad")});
+                        }
             tab_Usuario.setModel(modelo);
         } catch (Exception e) {
             System.out.println(e);
@@ -381,7 +381,7 @@ public class AdminUsuario extends javax.swing.JFrame {
         jLabel4.setText("Fecha Ingreso");
 
         btnHabilitar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnHabilitar.setText("Eliminar");
+        btnHabilitar.setText("Habilitar/Bloquear");
         btnHabilitar.setActionCommand("Habilitar");
         btnHabilitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,9 +417,9 @@ public class AdminUsuario extends javax.swing.JFrame {
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(lbl_rut, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbl_razonSocial, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_rut, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelLayout.createSequentialGroup()
@@ -497,14 +497,14 @@ public class AdminUsuario extends javax.swing.JFrame {
                                         .addComponent(txtFono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelLayout.createSequentialGroup()
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lbl_razonSocial)
-                                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_rut))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lbl_rut)
                                             .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel8)
-                                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_razonSocial))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -556,7 +556,7 @@ public class AdminUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1338, Short.MAX_VALUE)
                     .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -579,13 +579,13 @@ public class AdminUsuario extends javax.swing.JFrame {
         Date dateI = null;
         String fechaI;
         dateI = dtFecha.getDate();
-        fechaI =dateI.toString() + tab_Usuario.getValueAt(Clic_tabla, 5);
+        fechaI =tab_Usuario.getValueAt(Clic_tabla, 5).toString();
         String rut = "" + tab_Usuario.getValueAt(Clic_tabla, 0);
         String pass = "" + tab_Usuario.getValueAt(Clic_tabla, 1);
         String nombre = ""+ tab_Usuario.getValueAt(Clic_tabla, 2);
         String paterno = ""+ tab_Usuario.getValueAt(Clic_tabla, 3);
         String materno = ""+ tab_Usuario.getValueAt(Clic_tabla, 4);
-       //Date fechaIngreso = "" + tab_Usuario.getValueAt(Clic_tabla, 5);
+       //Date fechaIngreso = "" + tab_Usuario.getValueAt(Clic_tabla, 5); NOOOO
         String hab = ""+ tab_Usuario.getValueAt(Clic_tabla, 6);
         String nacionalidad = ""+ tab_Usuario.getValueAt(Clic_tabla, 7);
         String mail = ""+ tab_Usuario.getValueAt(Clic_tabla, 8);

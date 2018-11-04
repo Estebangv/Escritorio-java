@@ -541,6 +541,7 @@ ArrayList<Object> usuarios = new ArrayList<Object>();
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
+        new Menus().setVisible(true);
         home.setVisible(true);
     }//GEN-LAST:event_btn_salirActionPerformed
 

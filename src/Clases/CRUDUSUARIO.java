@@ -21,8 +21,8 @@ public class CRUDUSUARIO {
     public ArrayList<Usuario> Listar_Usuario(){
         ArrayList<Usuario> list = new ArrayList<Usuario>();
         Database cn = new Database();
-        String sql = "SELECT u.rut, u.pass, u.nombre, u.a_paterno, u.a_materno, u.fecha_Ingreso, u.mail,u.fono, u.habilitado, u.nacionalidad, t.nombre, d.nombre from usuario u INNER JOIN Tipo_Usuario t ON u.id_tipousuario = t.id_tipousuario INNER JOIN unidad d on u.id_unidad = d.id_unidad ";
-       //String sql ="SELECT * FROM usuario";
+        //String sql = "SELECT u.rut, u.pass, u.nombre, u.a_paterno, u.a_materno, u.fecha_Ingreso, u.mail,u.fono, u.habilitado, u.nacionalidad, t.nombre, d.nombre from usuario u INNER JOIN Tipo_Usuario t ON u.id_tipousuario = t.id_tipousuario INNER JOIN unidad d on u.id_unidad = d.id_unidad ";
+       String sql ="SELECT * FROM usuario";
         ResultSet lista = null;
         PreparedStatement ps = null;
         try{
@@ -35,7 +35,7 @@ public class CRUDUSUARIO {
                 usu.setNombre(lista.getString(3)); 
                 usu.setPaterno(lista.getString(4));
                 usu.setMaterno(lista.getString(5));
-                usu.setFechaIngreso(Date.valueOf(lista.getString(6)));
+                usu.setFechaIngreso(lista.getDate(6));
                 usu.setCorreo(lista.getString(7));
                 usu.setFono(lista.getString(8));
                 usu.setHabilitado(lista.getInt(9));
@@ -101,17 +101,18 @@ public class CRUDUSUARIO {
         PreparedStatement ps = null;
         try{
             ps = cn.getConnection().prepareStatement(sql);
-            ps.setString(2 , us.getPass());
-                ps.setString(3 ,us.getNombre()); 
-                ps.setString(4 , us.getPaterno());
-                ps.setString(5 , us.getMaterno());
-                ps.setString(6, String.valueOf(us.getFechaIngreso()));
-                ps.setString(7 ,us.getCorreo());
-                ps.setString(8,us.getFono());
-                ps.setInt(9,us.getHabilitado());
-                ps.setString(10,us.getNacionalidad());
-                ps.setInt(11,us.getId_tipoUsuario());
-                ps.setInt(12,us.getId_Unidad());
+            ps.setString(1 , us.getPass());
+                ps.setString(2 ,us.getNombre()); 
+                ps.setString(3 , us.getPaterno());
+                ps.setString(4 , us.getMaterno());
+                ps.setString(5, String.valueOf(us.getFechaIngreso()));
+                ps.setString(6 ,us.getCorreo());
+                ps.setString(7,us.getFono());
+                ps.setInt(8,us.getHabilitado());
+                ps.setString(9,us.getNacionalidad());
+                ps.setInt(10,us.getId_tipoUsuario());
+                ps.setInt(11,us.getId_Unidad());
+                ps.setString(12, us.getRut());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario se ha modificado correctamente");
         }catch(SQLException ex){

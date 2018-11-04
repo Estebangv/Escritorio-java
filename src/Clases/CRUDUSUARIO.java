@@ -99,7 +99,7 @@ public class CRUDUSUARIO {
 /*Metodo Modificar*/
     public void Modificar_Usuario(Usuario us){
         Database cn = new Database();
-        String sql = "UPDATE usuario SET pass = ?, nombre = ?, paterno = ?, materno = ?, fechaIngreso = ?, correo = ?, fono = ?, habilitado = ?, nacionalidad = ?, id_tipoUsuario = ?, id_unidad = ? WHERE rut = ?";
+        String sql = "UPDATE usuario SET pass = ?, nombre = ?, a_paterno = ?, a_materno = ?, mail = ?, fono = ?, habilitado = ?, nacionalidad = ?, id_tipousuario = ?, id_unidad = ? WHERE rut = ?";
         PreparedStatement ps = null;
        
         try{
@@ -108,14 +108,15 @@ public class CRUDUSUARIO {
                 ps.setString(2 ,us.getNombre()); 
                 ps.setString(3 , us.getPaterno());
                 ps.setString(4 , us.getMaterno());
-               ps.setString(5, String.valueOf(us.getFechaIngreso()));
-                ps.setString(6 ,us.getCorreo());
-                ps.setString(7,us.getFono());
-                ps.setInt(8,us.getHabilitado());
-                ps.setString(9,us.getNacionalidad());
-                ps.setInt(10,us.getId_tipoUsuario());
-                ps.setInt(11,us.getId_Unidad());
-                ps.setString(12, us.getRut());
+               //ps.setString(5, String.valueOf(us.getFechaIngreso()));
+               //ps.setString(5, us.getFechaIngreso().toString());
+                ps.setString(5 ,us.getCorreo());
+                ps.setString(6,us.getFono());
+                ps.setInt(7,us.getHabilitado());
+                ps.setString(8,us.getNacionalidad());
+                ps.setInt(9,us.getId_tipoUsuario());
+                ps.setInt(10,us.getId_Unidad());
+                ps.setString(11, us.getRut());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario se ha modificado correctamente");
         }catch(SQLException ex){

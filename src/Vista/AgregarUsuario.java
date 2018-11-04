@@ -124,7 +124,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
         txtNacionalidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CREAR OFERTA");
+        setTitle("Agregar Usuario");
 
         lblHabilitado.setText("HABILITADO");
 
@@ -542,7 +542,7 @@ ArrayList<Object> usuarios = new ArrayList<Object>();
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
         new Menus().setVisible(true);
-        home.setVisible(true);
+       
     }//GEN-LAST:event_btn_salirActionPerformed
 
     /**

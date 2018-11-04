@@ -64,14 +64,7 @@ public class Tabla_Usuario {
                 fila[5] = usu.getFechaIngreso();
                 fila[6] = usu.getCorreo();
                 fila[7] = usu.getFono();
-                //fila[8]=usu.getHabilitado();
-                
-                String hab = ""+usu.getHabilitado();
-                if(hab.equals("1")){
-                    fila[8]="Si";
-                }else{
-                    fila[8]="No";
-                }
+                fila[8]=usu.getHabilitado();
                 fila[9] = usu.getNacionalidad();
               //  String tu  = ""+usu.getId_tipoUsuario();
                 

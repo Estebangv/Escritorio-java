@@ -85,7 +85,7 @@ public class AdminUsuario extends javax.swing.JFrame {
             usu.setRut(txtRut.getText());
             usu.setPass(txtPass.getText());
             usu.setCorreo(txtCorreo.getText());
-            usu.setFechaIngreso(dtFecha.getDate());
+            //usu.setFechaIngreso(dtFecha.getDate());
             usu.setFono(txtFono.getText());
             usu.setHabilitado(Integer.parseInt(txtHabilitado.getText().toString()));
             usu.setId_tipoUsuario(Integer.parseInt(txtTipoUsuario.getText().toString()));
@@ -563,11 +563,11 @@ public class AdminUsuario extends javax.swing.JFrame {
         } else {
             int fila = tab_Usuario.getSelectedRow();
             String rut = tab_Usuario.getValueAt(fila, 0).toString();
-            String habilitado =  tab_Usuario.getValueAt(fila, 8).toString();  
+            int habilitado = (int) tab_Usuario.getValueAt(fila, 8);  
             int habilitado2;
             System.out.println("valor id: " + rut + " valor de activo: " + habilitado);
 
-            if (habilitado.equals("No")) {
+            if (habilitado==2) {
                 habilitado2 = 1;
                 
                 JOptionPane.showMessageDialog(this, "Usuario activado");
@@ -576,7 +576,7 @@ public class AdminUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Usuario bloqueado");
             }
 
-            System.out.println("NUEVOS -> valor id: " + rut+ " valor de activo: " + habilitado);
+            System.out.println("NUEVOS -> valor id: " + rut+ " valor de activo: " + habilitado2);
 
             Database cn = new Database();
             String sql = "UPDATE usuario SET habilitado = ? WHERE rut = ?";

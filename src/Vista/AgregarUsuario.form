@@ -186,6 +186,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCorreo">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCorreoFocusLost"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCorreoKeyTyped"/>
       </Events>
     </Component>
@@ -290,6 +291,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNacionalidad">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNacionalidadKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

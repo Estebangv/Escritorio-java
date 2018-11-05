@@ -61,7 +61,7 @@ public class Menus extends javax.swing.JFrame {
         });
         getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 265, 38));
 
-        btnUnidad.setBackground(new java.awt.Color(204, 204, 204));
+        btnUnidad.setBackground(new java.awt.Color(153, 153, 255));
         btnUnidad.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnUnidad.setText("CREAR UNIDAD");
         btnUnidad.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class Menus extends javax.swing.JFrame {
         });
         getContentPane().add(btnUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 265, 38));
 
-        btnPermiso.setBackground(new java.awt.Color(204, 204, 204));
+        btnPermiso.setBackground(new java.awt.Color(153, 153, 255));
         btnPermiso.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
         btnPermiso.setText("CREAR MOTIVO");
         btnPermiso.addActionListener(new java.awt.event.ActionListener() {

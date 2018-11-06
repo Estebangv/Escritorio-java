@@ -155,6 +155,7 @@ public class AdminUsuario extends javax.swing.JFrame {
         dtFecha = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administrador de Usuarios");
 
         tab_Usuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tab_Usuario.setModel(new javax.swing.table.DefaultTableModel(

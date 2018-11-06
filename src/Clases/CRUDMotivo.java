@@ -79,8 +79,8 @@ public class CRUDMotivo {
         PreparedStatement ps = null;
         try{
             ps = cn.getConnection().prepareStatement(sql);
-            ps.setInt(1, mo.getId_motivo());
-            ps.setString(2, mo.getNombreMotivo());
+            ps.setInt(2, mo.getId_motivo());
+            ps.setString(1, mo.getNombreMotivo());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Motivo modificado");
         }catch(SQLException ex){

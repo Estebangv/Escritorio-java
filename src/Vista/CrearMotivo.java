@@ -154,7 +154,7 @@ static Login home = new Login();
                     ultimoId = lista.getInt(1);
                 }
             }
-            ultimoId = ultimoId + 1;
+            ultimoId = ultimoId + 101;
             pst = reg.prepareStatement("INSERT INTO motivo VALUES(?,?)");
             if (ultimoId == 0) {
                 ultimoId = 1;
@@ -163,6 +163,7 @@ static Login home = new Login();
             pst.setString(2, descripcion);
             
             pst.executeUpdate();
+             JOptionPane.showMessageDialog(this, "Motivo Registrado Correctamente.");
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "ERROR." + e, "ERROR", JOptionPane.ERROR_MESSAGE);
         }

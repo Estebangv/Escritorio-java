@@ -25,14 +25,25 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import java.math.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Properties;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Message;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.MatteBorder;
+import sun.rmi.transport.Transport;
+import javax.mail.PasswordAuthentication;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.Session;
+import javax.mail.MessagingException;
 
 /**
  *
@@ -50,6 +61,18 @@ public class AgregarUsuario extends javax.swing.JFrame {
     String ruta, nombre;
     int contador = 0;
     boolean fechaIngreso = false;
+    
+  
+
+    
+    public String generarPass(){
+        String rut = txtRUT.getText().substring(0,2).toLowerCase();
+        String pass;
+        String nombre = txtNombre.getText().substring(0,2).toLowerCase();
+        String apellido = txtPaterno.getText().substring(0,2).toLowerCase();
+        
+        return pass=rut+nombre+apellido;
+    }
 
     public AgregarUsuario() {
         initComponents();
@@ -59,6 +82,36 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         setResizable(false);
 
+    }
+
+   
+    public void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+        String remitente = "munic.vistahermosa@gmail.com";
+        String clave = "hola.12345678";
+
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.user", remitente);
+        props.put("mail.smtp.clave", "hola.12345678");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+        try {
+            message.setFrom(new InternetAddress(remitente));
+            message.addRecipients(Message.RecipientType.TO, destinatario);
+            message.setSubject(asunto);
+            message.setText(cuerpo);
+            javax.mail.Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", remitente, clave);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        } catch (MessagingException me) {
+            me.printStackTrace();   //Si se produce un error
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -77,7 +130,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
         lblFono = new javax.swing.JLabel();
         lblCorreo = new javax.swing.JLabel();
         lblNacionalidad = new javax.swing.JLabel();
-        lblContra = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         txtUnidad = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
@@ -89,12 +141,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
         txtDatos = new javax.swing.JLabel();
         txtHab = new javax.swing.JTextField();
         btnVerUsuarios = new javax.swing.JButton();
-        txtPass = new javax.swing.JTextField();
         btn_salir = new javax.swing.JButton();
         txtNacionalidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Usuario");
+        setBackground(new java.awt.Color(153, 255, 153));
 
         lblHabilitado.setText("HABILITADO");
 
@@ -147,6 +199,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
             }
         });
 
+        txtRUT.setToolTipText("");
         txtRUT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtRUTFocusLost(evt);
@@ -163,8 +216,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
         lblCorreo.setText("CORREO");
 
         lblNacionalidad.setText("NACIONALIDAD");
-
-        lblContra.setText("CONTRASEÑA");
 
         lblFecha.setText("FECHA INGRESO");
 
@@ -205,53 +256,50 @@ public class AgregarUsuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(txtDatos)
+                .addContainerGap(246, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnVerUsuarios)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombre)
                     .addComponent(lblApellidos)
                     .addComponent(lblFecha)
                     .addComponent(lblRut)
-                    .addComponent(lblContra)
                     .addComponent(lblNacionalidad)
                     .addComponent(lblCorreo)
                     .addComponent(lblFono)
                     .addComponent(lblHabilitado)
-                    .addComponent(lblTipoUsuario))
+                    .addComponent(lblTipoUsuario)
+                    .addComponent(lblUnidad))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtTipoUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(txtHab, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFono, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNacionalidad, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPass))
-                        .addGap(31, 31, 31)
-                        .addComponent(lblUnidad)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_salir)
+                        .addGap(30, 30, 30))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(dtFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(txtRUT, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPaterno, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(txtDatos)
-                .addContainerGap(246, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVerUsuarios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salir)
-                .addGap(30, 30, 30))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(dtFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtRUT, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtPaterno, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtFono, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtHab, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(81, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,24 +328,25 @@ public class AgregarUsuario extends javax.swing.JFrame {
                         .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContra)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNacionalidad))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lblCorreo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNacionalidad)
-                    .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCorreo)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFono)
                     .addComponent(txtFono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblHabilitado)
-                    .addComponent(txtHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUnidad)
                     .addComponent(txtUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
@@ -307,9 +356,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
-                    .addComponent(btnVerUsuarios)
                     .addComponent(btn_salir))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btnVerUsuarios)
+                .addContainerGap())
         );
 
         pack();
@@ -321,7 +371,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_dtFechaFocusLost
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
+    
+    
+        String password = generarPass();
+    
+        //agregar
         int ultimoId = 0;
         ArrayList<Integer> idsUsuarios = new ArrayList<Integer>();
         String fechaI = "";
@@ -331,6 +385,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
         today.setHours(0);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         FileInputStream fis = null;
+        String destinatario = txtCorreo.getText(); //A quien le quieres escribir.
+        String asunto = "CLAVE PARA ACCEDER AL SISTEMA DE LA MUNICIPALIDAD VISTA HERMOSA";
+        String cuerpo = "HOLA! BIENVENID@ A LA MUNICIPALIDAD DE VISTA HERMOSA. \n"
+                + "PARA ACCEDER AL SISTEMA DEBE INGRESAR CON SU RUT Y CONTRASEÑA \n"
+                + "RUT : " + txtRUT.getText() + "\n"
+                + "CONTRASEÑA : "+ password;
 
         if (txtRUT.getText().equals("") || txtNombre.getText().equals("") || dtFecha.equals("")
                 || txtPaterno.getText().equals("") || txtMaterno.getText().equals("") || txtCorreo.getText().equals("") || txtFono.getText().equals("") || txtNacionalidad.getText().equals("")
@@ -358,7 +418,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 String fono = txtFono.getText();
                 String tipoUsuario = txtTipoUsuario.getText();
                 String unidad = txtUnidad.getText();
-                String pass = txtPass.getText();
+               // String pass = txtPass.getText();
 
                 ArrayList<Object> usuarios = new ArrayList<Object>();
                 PreparedStatement pst = null;
@@ -370,7 +430,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 pst = reg.prepareStatement("INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 
                 pst.setString(1, rut);
-                pst.setString(2, pass);
+                pst.setString(2, password);
                 pst.setString(3, nombre);
                 pst.setString(4, paterno);
                 pst.setString(5, materno);
@@ -386,6 +446,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "hay errores " + e, "ERROR", JOptionPane.ERROR_MESSAGE);
             }
+            enviarConGMail(destinatario, asunto, cuerpo);
         }
 
 
@@ -405,17 +466,16 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
     }
     private void txtFonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFonoKeyTyped
-           char validar= evt.getKeyChar();
-           if(Character.isLetter(validar))
-           {
-               getToolkit().beep();
-               evt.consume();
-              JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros en el telfono", "Aviso", JOptionPane.ERROR_MESSAGE);
-           }
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros en el telfono", "Aviso", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_txtFonoKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
-     int maximoCaracter = 30;
+        int maximoCaracter = 30;
         char validarCaracter = evt.getKeyChar();
         if (txtCorreo.getText().length() >= maximoCaracter) {
             evt.consume();
@@ -423,7 +483,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoKeyTyped
 
     private void txtMaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMaternoKeyTyped
-     int maximoCaracter = 99;
+        int maximoCaracter = 99;
         char validarCaracter = evt.getKeyChar();
         if (txtPaterno.getText().length() >= maximoCaracter) {
             evt.consume();
@@ -431,12 +491,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMaternoKeyTyped
 
     private void txtPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaternoKeyTyped
-     int maximoCaracter = 99;
+        int maximoCaracter = 99;
         char validarCaracter = evt.getKeyChar();
         if (txtPaterno.getText().length() >= maximoCaracter) {
             evt.consume();
         }
-        
+
     }//GEN-LAST:event_txtPaternoKeyTyped
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
@@ -498,7 +558,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btn_salir;
     private com.toedter.calendar.JDateChooser dtFecha;
     private javax.swing.JLabel lblApellidos;
-    private javax.swing.JLabel lblContra;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblFono;
@@ -515,7 +574,6 @@ public class AgregarUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaterno;
     private javax.swing.JTextField txtNacionalidad;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPass;
     private javax.swing.JTextField txtPaterno;
     private javax.swing.JTextField txtRUT;
     private javax.swing.JTextField txtTipoUsuario;

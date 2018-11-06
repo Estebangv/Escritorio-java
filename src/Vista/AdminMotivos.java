@@ -101,6 +101,7 @@ public class AdminMotivos extends javax.swing.JFrame {
         txtDescripcion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administrador de motivos");
 
         tab_motivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tab_motivo.setModel(new javax.swing.table.DefaultTableModel(

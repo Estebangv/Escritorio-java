@@ -44,6 +44,7 @@ public class CRUDUSUARIO {
                 usu.setNacionalidad(lista.getString(10));
                 usu.setId_tipoUsuario(lista.getInt(11));
                 usu.setId_Unidad(lista.getInt(12));
+                usu.setDias(lista.getInt(13));
  
                 
                 list.add(usu);
@@ -64,7 +65,7 @@ public class CRUDUSUARIO {
     
      public void Agregar_Usuario(Usuario us){
         Database cn = new Database();
-        String sql = "INSERT INTO usuario (rut,pass,nombre,paterno,materno,fechaIngreso,correo,fono,habilitado,nacionalidad,id_tipoUsuario,id_unidad) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuario (rut,pass,nombre,paterno,materno,fechaIngreso,correo,fono,habilitado,nacionalidad,id_tipoUsuario,id_unidad, dias) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = null;
         try{
             ps = cn.getConnection().prepareStatement(sql);
@@ -80,6 +81,7 @@ public class CRUDUSUARIO {
                 ps.setString(10,us.getNacionalidad());
                 ps.setInt(11,us.getId_tipoUsuario());
                 ps.setInt(12,us.getId_Unidad());
+                ps.setInt(13, us.getDias());
                 System.out.println("Se guardo correctamente");
             JOptionPane.showMessageDialog(null, "El usuario se ha agregado correctamente");
         }catch(SQLException ex){
@@ -116,6 +118,7 @@ public class CRUDUSUARIO {
                 ps.setString(8,us.getNacionalidad());
                 ps.setInt(9,us.getId_tipoUsuario());
                 ps.setInt(10,us.getId_Unidad());
+                //ps.setInt(11,us.getDias());
                 ps.setString(11, us.getRut());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "El usuario se ha modificado correctamente");

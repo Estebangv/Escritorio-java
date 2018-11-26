@@ -40,6 +40,7 @@ public class Tabla_Usuario {
         dt.addColumn("NACIONALIDAD");
         dt.addColumn("TIPO USUARIO");
         dt.addColumn("UNIDAD");
+        dt.addColumn("DIAS");
         dt.addColumn("MODIFICAR");
         dt.addColumn("HABILITAR");
         
@@ -54,7 +55,7 @@ public class Tabla_Usuario {
 
         if(list.size() > 0){
             for(int i=0; i<list.size(); i++){
-               Object fila[] = new Object[14];
+               Object fila[] = new Object[15];
                 usu = list.get(i);
                 fila[0] = usu.getRut();
                 fila[1] = usu.getPass();
@@ -84,8 +85,9 @@ public class Tabla_Usuario {
                 fila[9] = usu.getNacionalidad();
                 fila[10]=usu.getId_tipoUsuario();
                 fila[11] = usu.getId_Unidad();
-                fila[12] = btn_modificar; //cambiar numero
-                fila[13] = btn_habilitar; // cambiar numero
+                fila[12] = usu.getDias();
+                fila[13] = btn_modificar; //cambiar numero
+                fila[14] = btn_habilitar; // cambiar numero
                 dt.addRow(fila);
             }
             tabla.setModel(dt);

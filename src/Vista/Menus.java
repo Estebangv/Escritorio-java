@@ -107,8 +107,10 @@ public class Menus extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        int a = JOptionPane.showConfirmDialog(this, "Al hacer click en salir, se cerrará la sesión, ¿desea salir?", "SI/NO", JOptionPane.YES_NO_OPTION);
+if (a==0){
         new Login().setVisible(true);
-        this.dispose();
+        this.dispose();}
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnidadActionPerformed

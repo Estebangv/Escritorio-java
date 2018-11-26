@@ -24,11 +24,12 @@ public class Usuario {
    String nacionalidad;
    int id_tipoUsuario;
    int id_Unidad;
+   int dias;
 
     public Usuario() {
     }
 
-    public Usuario(String rut, String pass, String nombre, String paterno, String materno, Date fechaIngreso, String correo, String fono, int habilitado, String nacionalidad, int id_tipoUsuario, int id_Unidad) {
+    public Usuario(String rut, String pass, String nombre, String paterno, String materno, Date fechaIngreso, String correo, String fono, int habilitado, String nacionalidad, int id_tipoUsuario, int id_Unidad, int dias) {
         this.rut = rut;
         this.pass = pass;
         this.nombre = nombre;
@@ -41,6 +42,7 @@ public class Usuario {
         this.nacionalidad = nacionalidad;
         this.id_tipoUsuario = id_tipoUsuario;
         this.id_Unidad = id_Unidad;
+        this.dias = dias;
     }
 
     public String getRut() {
@@ -138,10 +140,18 @@ public class Usuario {
     public void setId_Unidad(int id_Unidad) {
         this.id_Unidad = id_Unidad;
     }
+    
+    public int getDias(){
+        return dias;
+    }
+    public void setDias(int dias)
+    {
+        this.dias = dias;
+    }
 
     @Override
     public String toString() {
-        return "Usuario{" + "rut=" + rut + ", pass=" + pass + ", nombre=" + nombre + ", paterno=" + paterno + ", materno=" + materno + ", fechaIngreso=" + fechaIngreso + ", correo=" + correo + ", fono=" + fono + ", habilitado=" + habilitado + ", nacionalidad=" + nacionalidad + ", id_tipoUsuario=" + id_tipoUsuario + ", id_Unidad=" + id_Unidad + '}';
+        return "Usuario{" + "rut=" + rut + ", pass=" + pass + ", nombre=" + nombre + ", paterno=" + paterno + ", materno=" + materno + ", fechaIngreso=" + fechaIngreso + ", correo=" + correo + ", fono=" + fono + ", habilitado=" + habilitado + ", nacionalidad=" + nacionalidad + ", id_tipoUsuario=" + id_tipoUsuario + ", id_Unidad=" + id_Unidad + ", dias = "+ dias+'}';
     }
 
     

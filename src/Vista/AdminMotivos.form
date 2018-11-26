@@ -141,10 +141,10 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn_eliminar" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_modificar" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_limpiar" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btn_modificar" max="32767" attributes="0"/>
+                              <Component id="btn_eliminar" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btn_limpiar" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="245" max="32767" attributes="0"/>
                       </Group>

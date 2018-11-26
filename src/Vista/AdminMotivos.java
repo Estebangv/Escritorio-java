@@ -309,10 +309,12 @@ public class AdminMotivos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+       int a = JOptionPane.showConfirmDialog(this, "Confirmar habilitación", "SI/NO", JOptionPane.YES_NO_OPTION);
+if(a==0){
         modificar();
         mo.visualizar_Motivo(tab_motivo);
         activa_boton(false, false, true);
-        lim.limpiar_texto(panel);
+        lim.limpiar_texto(panel);}
     }//GEN-LAST:event_btn_modificarActionPerformed
     /**/
     private void txtIdMotivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdMotivoKeyTyped

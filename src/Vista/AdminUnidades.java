@@ -101,9 +101,11 @@ public class AdminUnidades extends javax.swing.JFrame {
         btn_salir = new javax.swing.JButton();
         lblDesc = new javax.swing.JLabel();
         txtDescripción = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Unidades");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tab_unidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tab_unidad.setModel(new javax.swing.table.DefaultTableModel(
@@ -125,8 +127,11 @@ public class AdminUnidades extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tab_unidad);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 623, 238));
+
         panel.setBackground(new java.awt.Color(204, 204, 204));
         panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +143,7 @@ public class AdminUnidades extends javax.swing.JFrame {
                 txtNombreKeyTyped(evt);
             }
         });
+        panel.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 76, 164, 30));
 
         txtId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -149,12 +155,15 @@ public class AdminUnidades extends javax.swing.JFrame {
                 txtIdKeyTyped(evt);
             }
         });
+        panel.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 45, 164, 30));
 
         lblId.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblId.setText("ID");
+        panel.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, -1, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNombre.setText("Nombre");
+        panel.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 76, -1, 30));
 
         btn_modificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_modificar.setText("Modificar");
@@ -163,6 +172,7 @@ public class AdminUnidades extends javax.swing.JFrame {
                 btn_modificarActionPerformed(evt);
             }
         });
+        panel.add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 30));
 
         btn_eliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_eliminar.setText("Eliminar");
@@ -171,6 +181,7 @@ public class AdminUnidades extends javax.swing.JFrame {
                 btn_eliminarActionPerformed(evt);
             }
         });
+        panel.add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 120, 30));
 
         btn_limpiar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_limpiar.setText("Limpiar");
@@ -179,6 +190,8 @@ public class AdminUnidades extends javax.swing.JFrame {
                 btn_limpiarActionPerformed(evt);
             }
         });
+        panel.add(btn_limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 120, 30));
+        panel.add(lbl_rutRetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 139, -1, -1));
 
         btn_salir.setText("Salir");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -186,90 +199,18 @@ public class AdminUnidades extends javax.swing.JFrame {
                 btn_salirActionPerformed(evt);
             }
         });
+        panel.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 120, 30));
 
+        lblDesc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDesc.setText("Descripción");
+        panel.add(lblDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 108, -1, 30));
+        panel.add(txtDescripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 108, 164, 30));
 
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_salir)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId)
-                            .addComponent(lblNombre)
-                            .addComponent(lblDesc))
-                        .addGap(10, 10, 10)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(txtDescripción))))
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(lbl_rutRetail))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_eliminar)
-                            .addComponent(btn_modificar)
-                            .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblId)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_modificar))
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombre)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDesc)
-                            .addComponent(txtDescripción, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btn_eliminar)))
-                .addGap(18, 18, 18)
-                .addComponent(btn_limpiar)
-                .addGap(9, 9, 9)
-                .addComponent(lbl_rutRetail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(btn_salir)
-                .addGap(19, 19, 19))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -266, 640, 530));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 623, 240));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -394,6 +335,7 @@ public class AdminUnidades extends javax.swing.JFrame {
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDesc;
     private javax.swing.JLabel lblId;

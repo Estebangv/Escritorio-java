@@ -40,43 +40,43 @@
                       <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFecha" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRut" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNacionalidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFono" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblHabilitado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUnidad" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTipoUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblFecha" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblRut" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblApellidos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblTipoUsuario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblHabilitado" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblFono" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblNacionalidad" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCorreo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblUnidad" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jComboBox1" min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtRUT" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtPaterno" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtNacionalidad" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="txtCorreo" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="txtFono" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="txtHab" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="txtMaterno" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="jComboBox2" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
                                   <Component id="dtFecha" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtPaterno" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtNacionalidad" alignment="0" pref="100" max="32767" attributes="0"/>
+                                          <Component id="txtCorreo" alignment="0" pref="100" max="32767" attributes="0"/>
+                                          <Component id="txtFono" alignment="0" pref="100" max="32767" attributes="0"/>
+                                          <Component id="txtHab" alignment="0" pref="100" max="32767" attributes="0"/>
+                                          <Component id="txtRUT" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="txtMaterno" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="btnAgregar" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
                                   <Component id="btnVerUsuarios" min="-2" max="-2" attributes="0"/>
@@ -90,8 +90,8 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="496" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="399" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="116" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -101,62 +101,65 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblRut" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtRUT" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRut" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="txtRUT" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtMaterno" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPaterno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblNombre" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtNombre" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="dtFecha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtMaterno" pref="25" max="32767" attributes="0"/>
+                          <Component id="txtPaterno" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="lblApellidos" alignment="1" min="-2" pref="21" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblFecha" max="32767" attributes="0"/>
+                  <Component id="dtFecha" pref="27" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtNacionalidad" max="32767" attributes="0"/>
+                  <Component id="lblNacionalidad" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNacionalidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNacionalidad" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtCorreo" max="32767" attributes="0"/>
+                  <Component id="lblCorreo" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCorreo" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtFono" max="32767" attributes="0"/>
+                  <Component id="lblFono" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblFono" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFono" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblHabilitado" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtHab" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtHab" max="32767" attributes="0"/>
+                  <Component id="lblHabilitado" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jComboBox2" max="32767" attributes="0"/>
+                  <Component id="lblUnidad" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblTipoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblTipoUsuario" max="32767" attributes="0"/>
+                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="8" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnVerUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_salir" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -164,12 +167,20 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="486" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" pref="521" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagenes/registro.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="lblHabilitado">
       <Properties>
         <Property name="text" type="java.lang.String" value="HABILITADO"/>
@@ -261,7 +272,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="NOMBRE:"/>
+        <Property name="text" type="java.lang.String" value="NOMBRE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTipoUsuario">
@@ -274,16 +285,6 @@
         <Property name="text" type="java.lang.String" value="RUT"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtHab">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnVerUsuarios">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ver  Usuarios"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerUsuariosActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btn_salir">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -293,6 +294,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_salirActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerUsuarios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver  Usuarios"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerUsuariosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNacionalidad">
@@ -313,6 +322,11 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.JTextField" name="txtHab">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHabActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -322,14 +336,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/registro.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

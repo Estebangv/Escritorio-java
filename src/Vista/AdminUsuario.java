@@ -598,14 +598,20 @@ public class AdminUsuario extends javax.swing.JFrame {
         int tipoUsuario2 = (int) tab_Usuario.getValueAt(Clic_tabla, 10);
        //String unidad2 = ""+ tab_Usuario.getValueAt(Clic_tabla, 10);
        //String tipoUsuario2 = ""+ tab_Usuario.getValueAt(Clic_tabla, 11);
-
+        String habi="";
+        
+        if(hab.equals("1")){
+            habi="Si";
+        }else{
+            habi="No";
+        }
         txtRut.setText(rut);
         txtPass.setText(pass);
         txtPaterno.setText(paterno);
         txtFono.setText(fono);
         txtMaterno.setText(materno);
         dtFecha.setDate(fechaIngreso);
-        txtHabilitado.setText(hab);
+        txtHabilitado.setText(habi);
         txtNacionalidad.setText(nacionalidad);
         txtNombre.setText(nombre);
         txtCorreo.setText(mail);

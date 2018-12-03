@@ -36,6 +36,9 @@ public class Menus extends javax.swing.JFrame {
         btnPermiso = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         fondoAdmin = new javax.swing.JLabel();
+        btnAdminUsuarios = new javax.swing.JButton();
+        btnAdminUnidades = new javax.swing.JButton();
+        btnAdminMotivos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +62,7 @@ public class Menus extends javax.swing.JFrame {
                 btnUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 265, 38));
+        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 40));
 
         btnUnidad.setBackground(new java.awt.Color(153, 153, 255));
         btnUnidad.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -69,7 +72,7 @@ public class Menus extends javax.swing.JFrame {
                 btnUnidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 265, 38));
+        getContentPane().add(btnUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, 40));
 
         btnPermiso.setBackground(new java.awt.Color(153, 153, 255));
         btnPermiso.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -79,7 +82,7 @@ public class Menus extends javax.swing.JFrame {
                 btnPermisoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 265, 40));
+        getContentPane().add(btnPermiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 200, 40));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Lucida Sans", 0, 11)); // NOI18N
@@ -93,6 +96,30 @@ public class Menus extends javax.swing.JFrame {
 
         fondoAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/VistaHermosa.jpg"))); // NOI18N
         getContentPane().add(fondoAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 220, 160));
+
+        btnAdminUsuarios.setText("ADMINISTRADOR USUARIOS");
+        btnAdminUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminUsuariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdminUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 200, 40));
+
+        btnAdminUnidades.setText("ADMINISTRADOR UNIDADES");
+        btnAdminUnidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminUnidadesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdminUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 200, 40));
+
+        btnAdminMotivos.setText("ADMINISTRADOR MOTIVOS");
+        btnAdminMotivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminMotivosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdminMotivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 200, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vistas.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 430));
@@ -123,11 +150,32 @@ if (a==0){
         this.dispose();
     }//GEN-LAST:event_btnPermisoActionPerformed
 
+    private void btnAdminUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUsuariosActionPerformed
+        // TODO add your handling code here:
+        new AdminUsuario().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdminUsuariosActionPerformed
+
+    private void btnAdminUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminUnidadesActionPerformed
+        // TODO add your handling code here:
+        new AdminUnidades().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdminUnidadesActionPerformed
+
+    private void btnAdminMotivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminMotivosActionPerformed
+        // TODO add your handling code here:
+        new AdminMotivos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdminMotivosActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdminMotivos;
+    private javax.swing.JButton btnAdminUnidades;
+    private javax.swing.JButton btnAdminUsuarios;
     private javax.swing.JButton btnPermiso;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUnidad;

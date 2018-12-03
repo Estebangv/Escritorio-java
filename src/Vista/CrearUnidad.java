@@ -56,7 +56,6 @@ static Login home = new Login();
         btnRegistrarUnidad = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
-        btnAdmin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +78,7 @@ static Login home = new Login();
                 btnRegistrarUnidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 140, 30));
+        getContentPane().add(btnRegistrarUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 140, 30));
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -92,17 +91,9 @@ static Login home = new Login();
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/VistaHermosa.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 223, 148));
 
-        btnAdmin.setText("Administrar Unidades");
-        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 140, 30));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 480, 400));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 490, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,19 +139,12 @@ static Login home = new Login();
            this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        // TODO add your handling code here:
-        new AdminUnidades().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAdminActionPerformed
-
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnRegistrarUnidad;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;

@@ -60,11 +60,11 @@ public class Login extends javax.swing.JFrame {
                 txtPassKeyTyped(evt);
             }
         });
-        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 150, 30));
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 164, 30));
 
         lblPass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblPass.setText("Contraseña");
-        getContentPane().add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        getContentPane().add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 200, 110, 40));
 
         txtRut.setName(""); // NOI18N
         txtRut.addActionListener(new java.awt.event.ActionListener() {
@@ -77,11 +77,11 @@ public class Login extends javax.swing.JFrame {
                 txtRutKeyTyped(evt);
             }
         });
-        getContentPane().add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 150, 30));
+        getContentPane().add(txtRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 164, 30));
 
         lblRut.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblRut.setText("Rut");
-        getContentPane().add(lblRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, 40));
+        getContentPane().add(lblRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 60, 40));
 
         btnLogin.setText("Iniciar Sesión");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 213, 150, 30));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 150, 30));
 
         jButton1.setText("Salir");
         jButton1.setActionCommand("btnSalir");
@@ -98,10 +98,10 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 70, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 70, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/log.png"))); // NOI18N
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 400));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 390));
 
         pack();
         setLocationRelativeTo(null);

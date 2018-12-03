@@ -489,7 +489,7 @@ public class AdminUsuario extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
         jLabel11.setText("jLabel11");
-        panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -256, 1180, 630));
+        panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -256, 1240, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -653,35 +653,11 @@ public class AdminUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_rutPropertyChange
 
     private void txtRutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRutKeyTyped
-        /*  int maximorut = 8;
-        int errores = 0;
-        char validarCaracter = evt.getKeyChar();
-        ArrayList<Character> lista = retornarListaCaracteres();
-
-        for (int i = 0; i < lista.size(); i++) {
-            char caracter = lista.get(i);
-            if (validarCaracter == caracter) {
-                errores = errores + 1;
-            }
-        }
-
-        if ((Character.isLetter(validarCaracter) && validarCaracter != 'k') || txtRut.getText().length() >= maximorut || errores > 0) {
-            evt.consume();
-        }*/
+      
     }//GEN-LAST:event_txtRutKeyTyped
 
     private void txtRutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRutFocusLost
-        /*  int minimo = 7;
-        if (txtRut.getText().length() > 0) {
-            if (txtRut.getText().length() < minimo) {
-                txtRut.setForeground(Color.red);
-                JOptionPane.showMessageDialog(null, "Ingrese rut con su maximo de caracteres correcto EJ:(123456781)", "Aviso", JOptionPane.ERROR_MESSAGE);
-                rutCorrecto = false;
-            } else {
-                txtRut.setForeground(Color.black);
-                rutCorrecto = true;
-            }
-        }*/
+       
     }//GEN-LAST:event_txtRutFocusLost
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped

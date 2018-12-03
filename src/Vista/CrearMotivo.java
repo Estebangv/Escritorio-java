@@ -53,14 +53,14 @@ static Login home = new Login();
         btnVolver = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        btnAdmin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crear Motivo");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Nombre Motivo");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Nombre motivo");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, -1, 30));
         getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 25, 250, 30));
 
@@ -70,7 +70,7 @@ static Login home = new Login();
                 btnRegistrarMotivoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 87, 130, 30));
+        getContentPane().add(btnRegistrarMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 130, 30));
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -83,14 +83,6 @@ static Login home = new Login();
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/VistaHermosa.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 210, 150));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 147, 60, -1));
-
-        btnAdmin.setText("Administrar Motivo");
-        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 87, 130, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -140,19 +132,12 @@ static Login home = new Login();
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        // TODO add your handling code here:
-        new AdminMotivos().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAdminActionPerformed
-
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnRegistrarMotivo;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;

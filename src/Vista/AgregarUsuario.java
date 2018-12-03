@@ -125,7 +125,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 list.add(lista.getString(1));
                 String n = lista.getString("nombre");
 
-                jComboBox1.addItem(lista.getString(1));
+                cmbTipoUsuario.addItem(lista.getString(1));
 
             }
         } catch (SQLException ex) {
@@ -227,7 +227,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
             while (lista.next()) {
                 list.add(lista.getString(1));
                 String n = lista.getString("nombre");
-                jComboBox2.addItem(lista.getString(1));
+                cmbUnidad.addItem(lista.getString(1));
 
             }
         } catch (SQLException ex) {
@@ -280,8 +280,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblHabilitado = new javax.swing.JLabel();
         dtFecha = new com.toedter.calendar.JDateChooser();
+        lblHabilitado = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         txtFono = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
@@ -299,12 +299,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
         lblTipoUsuario = new javax.swing.JLabel();
         lblRut = new javax.swing.JLabel();
         btn_salir = new javax.swing.JButton();
-        btnVerUsuarios = new javax.swing.JButton();
         txtNacionalidad = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbTipoUsuario = new javax.swing.JComboBox<>();
         txtHab = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbUnidad = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -314,17 +314,17 @@ public class AgregarUsuario extends javax.swing.JFrame {
         setForeground(java.awt.Color.green);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHabilitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblHabilitado.setText("HABILITADO");
-        getContentPane().add(lblHabilitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 262, -1, 30));
-
         dtFecha.setDateFormatString("yyyy-MM-dd");
         dtFecha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 dtFechaFocusLost(evt);
             }
         });
-        getContentPane().add(dtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 138, 164, 30));
+        getContentPane().add(dtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 169, 164, 30));
+
+        lblHabilitado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblHabilitado.setText("HABILITADO");
+        getContentPane().add(lblHabilitado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 293, -1, 30));
 
         btnAgregar.setBackground(new java.awt.Color(51, 204, 255));
         btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -334,14 +334,14 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 120, 30));
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 120, 30));
 
         txtFono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFonoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtFono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 231, 164, 30));
+        getContentPane().add(txtFono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 262, 164, 30));
 
         txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -353,14 +353,14 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 txtCorreoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 164, 30));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 231, 164, 30));
 
         txtMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtMaternoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 76, 164, 30));
+        getContentPane().add(txtMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 107, 164, 30));
 
         txtPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -387,31 +387,31 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 txtRUTKeyTyped(evt);
             }
         });
-        getContentPane().add(txtRUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 107, 164, 30));
+        getContentPane().add(txtRUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 138, 164, 30));
 
         lblFono.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFono.setText("FONO");
-        getContentPane().add(lblFono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 231, -1, 30));
+        getContentPane().add(lblFono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 262, -1, 30));
 
         lblCorreo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCorreo.setText("CORREO");
-        getContentPane().add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
+        getContentPane().add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 231, -1, 30));
 
         lblNacionalidad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNacionalidad.setText("NACIONALIDAD");
-        getContentPane().add(lblNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 169, -1, 30));
+        getContentPane().add(lblNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 30));
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFecha.setText("FECHA INGRESO");
-        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 138, -1, 30));
+        getContentPane().add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 169, -1, 30));
 
         lblApellidos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblApellidos.setText("APELLIDOS");
+        lblApellidos.setText("APELLIDO PATERNO");
         getContentPane().add(lblApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 76, -1, 30));
 
         lblUnidad.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblUnidad.setText("UNIDAD");
-        getContentPane().add(lblUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 293, -1, 30));
+        getContentPane().add(lblUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 324, -1, 30));
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblNombre.setText("NOMBRE");
@@ -419,11 +419,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         lblTipoUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTipoUsuario.setText("TIPO USUARIO");
-        getContentPane().add(lblTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 324, -1, 30));
+        getContentPane().add(lblTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 355, -1, 30));
 
         lblRut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblRut.setText("RUT");
-        getContentPane().add(lblRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 107, -1, 30));
+        getContentPane().add(lblRut, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 138, -1, 30));
 
         btn_salir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salir.setForeground(new java.awt.Color(255, 0, 0));
@@ -433,47 +433,42 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 btn_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 120, 30));
-
-        btnVerUsuarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnVerUsuarios.setText("Ver  Usuarios");
-        btnVerUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerUsuariosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnVerUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 120, 30));
+        getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 120, 30));
 
         txtNacionalidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNacionalidadKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 169, 164, 30));
+        getContentPane().add(txtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 164, 30));
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbTipoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 324, 164, 30));
+        getContentPane().add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 355, 164, 30));
 
         txtHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHabActionPerformed(evt);
             }
         });
-        getContentPane().add(txtHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 262, 164, 30));
+        getContentPane().add(txtHab, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 293, 164, 30));
 
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 293, 164, 30));
+        getContentPane().add(cmbUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 324, 164, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("INGRESE DATOS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("APELLIDO MATERNO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 107, -1, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registro.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 510, 450));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 510, 470));
 
         pack();
         setLocationRelativeTo(null);
@@ -496,11 +491,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         Date dateI = null;
         Date today = new Date();
-        //today.setHours(0);
-        today.setDate(31 / 12 / 2018);
+        
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        // FileInputStream fis = null;
+       
         String destinatario = txtCorreo.getText(); //A quien le quieres escribir.
         String asunto = "CLAVE PARA ACCEDER AL SISTEMA DE LA MUNICIPALIDAD VISTA HERMOSA";
         String cuerpo = "HOLA! BIENVENID@ A LA MUNICIPALIDAD DE VISTA HERMOSA. \n"
@@ -537,8 +531,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 // String tipoUsuario = txtTipoUsuario.getText();
                 // String unidad = txtUnidad.getText();
                 // String pass = txtPass.getText();
-                int combo = jComboBox1.getSelectedIndex();
-                int combo2 = jComboBox2.getSelectedIndex();
+                int tipoUsuario = cmbTipoUsuario.getSelectedIndex();
+                int unidad = cmbUnidad.getSelectedIndex();
 
                 ArrayList<Object> usuarios = new ArrayList<Object>();
                 PreparedStatement pst = null;
@@ -551,9 +545,9 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 pst = reg.prepareStatement("INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
                 int habi = 0;
-                if (habilitado.equals("Si") || habilitado.equals("si")) {
+                if (habilitado.equals("Si") || habilitado.equals("si") || habilitado.equals("SI") || habilitado.equals("sI") ) {
                     habi = 1;
-                } else if (habilitado.equals("No") || habilitado.equals("no")) {
+                } else if (habilitado.equals("No") || habilitado.equals("no")|| habilitado.equals("NO")|| habilitado.equals("nO")) {
                     habi = 2;
                 } else {
                     JOptionPane.showConfirmDialog(this, "Ingrese si el usuario estará habilitado 'Si o No'", "Error", JOptionPane.ERROR_MESSAGE);
@@ -582,6 +576,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 System.out.println("INGRESO: " + ingreso);
                 System.out.println("HOY: " + actual);
                 System.out.println("AÑOS: " + anos);
+                System.out.println(today);
 
                 pst.setString(1, rut);
                 pst.setString(2, password);
@@ -593,10 +588,8 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 pst.setString(8, "+569" + fono);
                 pst.setInt(9, (habi));
                 pst.setString(10, nacionalidad);
-                pst.setInt(11, combo + 1);
-                pst.setInt(12, combo2 + 1);
-                //pst.setInt(11, Integer.parseInt(tipoUsuario));
-                // pst.setInt(12, Integer.parseInt(unidad));
+                pst.setInt(11, tipoUsuario + 1);
+                pst.setInt(12, unidad + 1);
                 pst.setInt(13, dias);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Usuario Registrado Correctamente.");
@@ -606,8 +599,9 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hay errores, por favor revise los datos. " + e, "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             enviarConGMail(destinatario, asunto, cuerpo);
-            //im.limpiar_texto(panel);
+            
         }
+        
 
 
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -627,10 +621,11 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }
     private void txtFonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFonoKeyTyped
         char validar = evt.getKeyChar();
-        if (Character.isLetter(validar)) {
+        int maxNumeros = 8;
+        if (Character.isLetter(validar) && txtFono.getText().length()>=maxNumeros) {
             getToolkit().beep();
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros en el telfono.", "Aviso", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Solo se puede ingresar numeros en el teléfono", "Aviso", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_txtFonoKeyTyped
 
@@ -652,7 +647,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMaternoKeyTyped
 
     private void txtPaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPaternoKeyTyped
-        int maximoCaracter = 99;
+        int maximoCaracter = 25;
         char validarCaracter = evt.getKeyChar();
         if (txtPaterno.getText().length() >= maximoCaracter) {
             evt.consume();
@@ -661,7 +656,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPaternoKeyTyped
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        int maximoCaracter = 99;
+        int maximoCaracter = 25;
         char validarCaracter = evt.getKeyChar();
         if (txtNombre.getText().length() >= maximoCaracter) {
             evt.consume();
@@ -682,11 +677,6 @@ if(validarRut(txtRUT.getText())){
        
 
     }//GEN-LAST:event_txtRUTKeyTyped
-
-    private void btnVerUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerUsuariosActionPerformed
-        this.dispose();
-        new AdminUsuario().setVisible(true);
-    }//GEN-LAST:event_btnVerUsuariosActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
@@ -712,11 +702,11 @@ if(validarRut(txtRUT.getText())){
         }
     }//GEN-LAST:event_txtNacionalidadKeyTyped
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cmbTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoUsuarioActionPerformed
         // TODO add your handling code here:
 //listarTipoUsuario();
         //jComboBox1.getSelectedIndex();
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbTipoUsuarioActionPerformed
 
     private void txtHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHabActionPerformed
         // TODO add your handling code here:
@@ -728,13 +718,13 @@ if(validarRut(txtRUT.getText())){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnVerUsuarios;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JComboBox<String> cmbTipoUsuario;
+    private javax.swing.JComboBox<String> cmbUnidad;
     private com.toedter.calendar.JDateChooser dtFecha;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblFecha;

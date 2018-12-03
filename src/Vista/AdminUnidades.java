@@ -38,7 +38,7 @@ public class AdminUnidades extends javax.swing.JFrame {
 
         setResizable(false);
         //obtenerProductos();
-        activa_boton(false, false, true);
+        activa_boton(false, false, false,false,false);
         tab_unidad.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
@@ -71,10 +71,12 @@ public class AdminUnidades extends javax.swing.JFrame {
         crud_un.Eliminar_Unidad(un);
     }
 
-    public void activa_boton(boolean a2, boolean a3, boolean a4) {
+    public void activa_boton(boolean a2, boolean a3, boolean a4, boolean a5, boolean a6) {
         btn_modificar.setEnabled(a2);
         btn_eliminar.setEnabled(a3);
         txtId.setEnabled(a4);
+        txtNombre.setEnabled(a5);
+        txtDescripción.setEnabled(a6);
 
     }
 
@@ -210,7 +212,7 @@ public class AdminUnidades extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -266, 640, 530));
 
-        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 623, 240));
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 650, 280));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -241,11 +243,11 @@ public class AdminUnidades extends javax.swing.JFrame {
 
                 if (boton.getName().equals("mod")) {
                     System.out.println("Click en el boton modificar");
-                    activa_boton(true, false, false);
+                    activa_boton(true, false, false,true,true);
                 }
                 if (boton.getName().equals("eli")) {
                     System.out.println("Click en el boton eliminar");
-                    activa_boton(false, true, false);
+                    activa_boton(false, true, false,false,false);
                 }
             }
 
@@ -259,7 +261,7 @@ public class AdminUnidades extends javax.swing.JFrame {
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
         lim.limpiar_texto(panel);
-        activa_boton(false, false, true);
+        activa_boton(false, false, true,false,false);
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
@@ -268,7 +270,7 @@ public class AdminUnidades extends javax.swing.JFrame {
         if (s == 0) {
             eliminar();
             un.visualizar_Unidad(tab_unidad);
-            activa_boton(false, false, true);
+            activa_boton(false, false, true,false,false);
             lim.limpiar_texto(panel);
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
@@ -276,7 +278,7 @@ public class AdminUnidades extends javax.swing.JFrame {
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
         modificar();
         un.visualizar_Unidad(tab_unidad);
-        activa_boton(false, false, true);
+        activa_boton(false, false, false,false,false);
         lim.limpiar_texto(panel);
     }//GEN-LAST:event_btn_modificarActionPerformed
 

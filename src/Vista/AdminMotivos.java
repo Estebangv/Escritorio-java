@@ -39,7 +39,7 @@ public class AdminMotivos extends javax.swing.JFrame {
 
         setResizable(false);
         
-        activa_boton(false, false, true);
+        activa_boton(false, false, false,false);
         tab_motivo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
@@ -71,10 +71,11 @@ public class AdminMotivos extends javax.swing.JFrame {
         crud_mo.Eliminar_Motivo(mo);
     }
 
-    public void activa_boton(boolean a2, boolean a3, boolean a4) {
+    public void activa_boton(boolean a2, boolean a3, boolean a4, boolean a5) {
         btn_modificar.setEnabled(a2);
         btn_eliminar.setEnabled(a3);
         txtIdMotivo.setEnabled(a4);
+        txtDescripcion.setEnabled(a5);
 
     }
 
@@ -222,11 +223,11 @@ public class AdminMotivos extends javax.swing.JFrame {
 
                 if (boton.getName().equals("mod")) {
                     System.out.println("Click en el boton modificar");
-                    activa_boton(true, false, false);
+                    activa_boton(true, false, false,true);
                 }
                 if (boton.getName().equals("eli")) {
                     System.out.println("Click en el boton eliminar");
-                    activa_boton(false, true, false);
+                    activa_boton(false, true, false,false);
                 }
             }
 
@@ -240,7 +241,7 @@ public class AdminMotivos extends javax.swing.JFrame {
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
         lim.limpiar_texto(panel);
-        activa_boton(false, false, true);
+        activa_boton(false, false, false,false);
     }//GEN-LAST:event_btn_limpiarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
@@ -249,50 +250,26 @@ public class AdminMotivos extends javax.swing.JFrame {
         if (s == 0) {
             eliminar();
             mo.visualizar_Motivo(tab_motivo);
-            activa_boton(false, false, true);
+            activa_boton(false, false, false,false);
             lim.limpiar_texto(panel);
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
-       int a = JOptionPane.showConfirmDialog(this, "Confirmar habilitación", "SI/NO", JOptionPane.YES_NO_OPTION);
+       int a = JOptionPane.showConfirmDialog(this, "Confirmar modificación", "SI/NO", JOptionPane.YES_NO_OPTION);
 if(a==0){
         modificar();
         mo.visualizar_Motivo(tab_motivo);
-        activa_boton(false, false, true);
+        activa_boton(false, false, false,false);
         lim.limpiar_texto(panel);}
     }//GEN-LAST:event_btn_modificarActionPerformed
     /**/
     private void txtIdMotivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdMotivoKeyTyped
-        /*int maximorut = 8;
-        int errores = 0;
-        char validarCaracter = evt.getKeyChar();
-        ArrayList<Character> lista = retornarListaCaracteres();
-
-        for (int i = 0; i < lista.size(); i++) {
-            char caracter = lista.get(i);
-            if (validarCaracter == caracter) {
-                errores = errores + 1;
-            }
-        }
-
-        if ((Character.isLetter(validarCaracter) && validarCaracter != 'k') || txt_rut.getText().length() >= maximorut || errores > 0) {
-            evt.consume();
-        }*/
+        
     }//GEN-LAST:event_txtIdMotivoKeyTyped
 
     private void txtIdMotivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIdMotivoFocusLost
-        /*int minimo = 4;
-        if (txtId.getText().length() > 0) {
-            if (txtId.getText().length() < minimo) {
-                txtId.setForeground(Color.red);
-                JOptionPane.showMessageDialog(null, "Ingrese id con un maximo de 4 numeros)", "Aviso", JOptionPane.ERROR_MESSAGE);
-                ;
-            } else {
-                txtId.setForeground(Color.black);
-                //rutCorrecto = true;
-            }
-        }*/
+        
 
     }//GEN-LAST:event_txtIdMotivoFocusLost
 
